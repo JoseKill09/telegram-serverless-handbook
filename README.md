@@ -26,6 +26,7 @@ Either way, **regenerate the Serverless access token in @BotFather when you are 
 | [`docs/database.md`](docs/database.md) | The Drizzle-like database: gotchas and migrations |
 | [`docs/runtime.md`](docs/runtime.md) | What exists inside the V8 isolate (SDK, `fetch`, files, `Intl`…) |
 | [`docs/bot-api.md`](docs/bot-api.md) | Calling the Bot API from Serverless, Rich Messages, entities |
+| [`docs/rich-messages.md`](docs/rich-messages.md) | Rich Messages cheat sheet: every tag, buttons, limits, gotchas, fallback code |
 | [`docs/mini-apps.md`](docs/mini-apps.md) | Hosting a Mini App and calling endpoints |
 | [`docs/patterns.md`](docs/patterns.md) | Multi-user bots, testing without breaking real data, life without cron… |
 | [`docs/limits.md`](docs/limits.md) | Known limits and missing features |

@@ -9,6 +9,7 @@
   await api.sendRichMessage({ chat_id, rich_message: { html: '<h3>Title</h3><p>Text</p>' } });
   await api.editMessageText({ chat_id, message_id, rich_message: { html } });   // edit a rich message
   ```
+  Full reference, limits, gotchas and a fallback pattern: [rich-messages.md](rich-messages.md).
   Buttons can live inside the HTML (`<tg-button-row><tg-button type="callback_data" data="x">OK</tg-button></tg-button-row>`) or in `reply_markup`. Keep a fallback to classic `sendMessage` with `parse_mode: 'HTML'`: if rich fails for a user/client, retry one level simpler. Spec: <https://core.telegram.org/bots/api/rich-messages.md>.
   In rich HTML, use `<br>` for line breaks inside `<blockquote>` and `<details>`; classic HTML does **not** accept `<br>` (use `\n`).
 - `copyMessage` returns `{ message_id }`; `copyMessages` / `forwardMessages` return arrays; `forwardMessage` returns a `Message`. Keep the new IDs if you will need to edit the copies later.
