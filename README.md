@@ -11,7 +11,7 @@ What the official docs don't tell you, tested patterns, and prompts that let an 
 | You have… | Use | What happens |
 |---|---|---|
 | An AI **agent that can run commands** (Claude Code — also in the browser at claude.ai/code —, Cursor, Codex, opencode…) | [`prompts/autonomous-agent.md`](prompts/autonomous-agent.md) | The AI writes the code, tests it on Telegram's servers, deploys it and checks the result. Fully autonomous. |
-| Only an **AI chat** (Claude, ChatGPT, Gemini…) and Telegram | [Shipcast](https://github.com/JoseKill09/shipcast) | The AI gives you a ZIP; you send it to the Shipcast bot, which validates and publishes it. |
+| Only an **AI chat** (Claude, ChatGPT, Gemini…) and Telegram | [Builder Hub](https://github.com/JoseKill09/builder-hub-bot) | The AI gives you a ZIP; you send it to the Builder Hub bot, which validates and publishes it. |
 
 Either way, **regenerate the Serverless access token in @BotFather when you are done**: you gave it to someone else.
 
