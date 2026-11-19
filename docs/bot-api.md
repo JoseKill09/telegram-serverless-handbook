@@ -24,3 +24,9 @@
 ## Webhook
 
 The platform manages the webhook. `allowed_updates` = the handler files you deployed. If someone sets a webhook with the bot token, `tgcloud webhook` shows it out of sync; `tgcloud webhook sync` fixes it.
+
+## Reading the bot's state from inside a handler
+
+- `api.getMe()`, `api.getChatMenuButton({})` and `api.getMyCommands({})` work through the `api` proxy.
+- **`api.getWebhookInfo()` is restricted** ("Method getWebhookInfo is restricted"): the cloud owns the webhook. Use the CLI instead: `tgcloud webhook` prints the webhook URL, the allowed updates, the **pending update count** and whether it is in sync with the deployed handlers.
+

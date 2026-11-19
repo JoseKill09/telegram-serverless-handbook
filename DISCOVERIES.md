@@ -5,6 +5,7 @@ Findings that the official documentation does not state (or states differently).
 
 | Date | CLI | Status | Finding | Details |
 |---|---|---|---|---|
+| 2026-11-19 | 0.2.0 | ✅ | `api.getWebhookInfo()` is **restricted** inside handlers/endpoints; `tgcloud webhook` shows URL, allowed updates, pending updates and sync state instead. `getMe`, `getChatMenuButton` and `getMyCommands` do work. | [bot-api.md](docs/bot-api.md#reading-the-bots-state-from-inside-a-handler) |
 | 2026-11-19 | 0.2.0 | ✅ | A bot's published Mini App can be downloaded file by file with `GET /manage/static/blob/<hash>` (hashes from `.tgcloud/static.json`); `tgcloud pull` only brings the modules. Together they allow a full export/migration to another bot. | [management-api.md](docs/management-api.md#downloading-a-bots-published-code-and-mini-app-export--migrate-to-another-bot) |
 | 2026-11-19 | 0.2.0 | ✅ | `tgcloud run endpoints/<name>` runs a **local file that was never pushed** (temporary one-off scripts) against the real bot, without changing the deployment. | [cli.md](docs/cli.md#running-a-one-off-script-without-deploying-it) |
 | 2026-11-19 | 0.2.0 | ✅ | `setChatMenuButton` without `chat_id` sets the default menu button; `getChatMenuButton` can lag a few seconds and reports `default` as `commands`. | [mini-apps.md](docs/mini-apps.md) |
