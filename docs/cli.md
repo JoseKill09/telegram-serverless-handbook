@@ -74,6 +74,10 @@ Schema out of sync — 4 changes:
 - clean up rows you create (a temporary endpoint that deletes them works well — and delete that endpoint afterwards);
 - if your code notifies an owner/admin by ID, temporarily point that ID to a fake one.
 
+## Running a one-off script without deploying it
+
+`tgcloud run` also works for a file that was **never pushed**: put a temporary endpoint in `tgcloud/endpoints/` (e.g. `oneoff.js`), run `tgcloud run endpoints/oneoff '{}'` and delete the file. It runs on the platform with the bot's real Bot API and database, and the deployed bot is not changed. Useful for one-time setup (menu button, commands, profile) or maintenance from automation. A folder with just an empty `.tgcloud/` plus `fetch` is enough.
+
 ## Revisions and concurrency
 
 Every deploy bumps a revision. `push` sends the revision you last synced; if the cloud moved ahead, it refuses. `fetch` / `pull` resync; `push --force` overwrites.

@@ -5,6 +5,9 @@ Findings that the official documentation does not state (or states differently).
 
 | Date | CLI | Status | Finding | Details |
 |---|---|---|---|---|
+| 2026-11-19 | 0.2.0 | ✅ | `tgcloud run endpoints/<name>` runs a **local file that was never pushed** (temporary one-off scripts) against the real bot, without changing the deployment. | [cli.md](docs/cli.md#running-a-one-off-script-without-deploying-it) |
+| 2026-11-19 | 0.2.0 | ✅ | `setChatMenuButton` without `chat_id` sets the default menu button; `getChatMenuButton` can lag a few seconds and reports `default` as `commands`. | [mini-apps.md](docs/mini-apps.md) |
+| 2026-11-19 | 0.2.0 | ✅ | `push` only prints `Static: https://app<id>.tgcloud.ai/` when Mini App files changed. | [mini-apps.md](docs/mini-apps.md) |
 | 2026-11-17 | 0.2.0 | ✅ | An **empty `.tgcloud/` folder** is enough for the CLI to treat a folder as a project; `fetch` fills `state.json`, `capabilities.json`, `static.json`, `remote/`. | [cli.md](docs/cli.md#what-makes-a-folder-a-project) |
 | 2026-11-17 | 0.2.0 | ✅ | `.tgcloud/capabilities.json` contains the **live list of valid handler names** (`directories[].allowed_names`). | [platform.md](docs/platform.md#valid-handler-names) |
 | 2026-11-17 | 0.2.0 | 🔎 | The CLI only talks to **`https://cloud.telegram.org/<app_id>/manage/…`** with `Authorization: Bearer <token>`: `/get`, `/deploy`, `/run`, `/migrate`, `/webhook`, `/webhook/sync`, `/static/prepare`, `/static/blob/<hash>`. | [management-api.md](docs/management-api.md) |

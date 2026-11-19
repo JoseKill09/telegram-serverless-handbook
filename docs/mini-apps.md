@@ -34,4 +34,5 @@ Telegram.WebApp.Serverless.call('getState', { page: 1 }, (err, result) => {
 
 - Opened in a normal browser (not from Telegram), `Telegram.WebApp.initData` is empty, so endpoint calls cannot be authorized (the docs say they are rejected with `UNAUTHORIZED`). Check `initData` at start-up and show a friendly "open it from the bot" message.
 - `Intl.DateTimeFormat().resolvedOptions().timeZone` gives the device time zone: a nice default for per-user time zone settings.
-- Set the menu button from the bot (`setChatMenuButton` with `web_app: { url }`) instead of asking users to configure BotFather.
+- Set the menu button from the bot (`setChatMenuButton` with `web_app: { url }`) instead of asking users to configure BotFather. Without `chat_id` it becomes the default for everyone. `getChatMenuButton({})` may still return the old value for a few seconds after a change, and `type: 'default'` is reported back as `type: 'commands'`.
+- After a deploy with no Mini App file changes, `push` does **not** print the `Static:` URL; the URL is always `https://app<id>.tgcloud.ai/`.
