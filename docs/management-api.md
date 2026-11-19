@@ -23,3 +23,10 @@ Observed in `@tgcloud/cli` 0.2.0 source (`src/api/client.js`), 2026-11-17.
 Consequences:
 - To deploy, a machine only needs to reach **`cloud.telegram.org`** (plus `registry.npmjs.org` if it installs the CLI).
 - A deployer could, in principle, speak this API directly (even from another Serverless bot with `sdk` `fetch`). The body formats of `/deploy` and `/static/*` are not documented — read the CLI source before trying, and expect changes. **Unverified** beyond reading the source.
+
+## Downloading a bot's published code and Mini App (export / migrate to another bot)
+
+- `tgcloud fetch` already stores a **snapshot of the deployed modules** in `.tgcloud/remote/` (same files as `tgcloud pull`, which writes them into `tgcloud/`). `pull` does **not** download the Mini App.
+- The Mini App's file list is in `.tgcloud/static.json` (`manifest`: path → `{hash, size}`, plus `config` with `headers`, `spa`, `immutable`, `redirects`). Each file can be downloaded with a plain **`GET https://cloud.telegram.org/<app_id>/manage/static/blob/<hash>`** and `Authorization: Bearer <token>` (verified: HTTP 200 with the raw bytes).
+- With both you can rebuild a complete project (`tgcloud/` + `webapp/` + a `tgcloud.jsonc` with `static.source` and the same `headers`) and publish it to a different bot. A rebuilt project re-checked against the original bot shows "nothing to change". Database **data** is not part of any of this (only `schema.js`).
+
